@@ -15,15 +15,13 @@ Add this to your site's footer:
 
 ```html
 <div class="webring">
-  <a href="https://YOUR-WEBRING-URL/#YOUR-SITE?nav=prev">&larr;</a>
-  <a href="https://YOUR-WEBRING-URL/">webring</a>
-  <a href="https://YOUR-WEBRING-URL/#YOUR-SITE?nav=next">&rarr;</a>
+  <a href="https://socalcs.tech/#YOUR-SITE?nav=prev">&larr;</a>
+  <a href="https://socalcs.tech/">webring</a>
+  <a href="https://socalcs.tech/#YOUR-SITE?nav=next">&rarr;</a>
 </div>
 ```
 
-Replace:
-- `YOUR-WEBRING-URL` with the actual webring domain (once deployed)
-- `YOUR-SITE` with your site's URL (without `https://`)
+Replace `YOUR-SITE` with your site's URL (without `https://`)
 
 ## Credits
 Inspired by the [SYDE-BME](https://cs.uwatering.com/) webring from Waterloo!
