@@ -7,11 +7,6 @@ const siteData = {
             name: "Jordan Moreno",
             year: "2026",
             website: "https://jordanmoreno.me/"
-        },
-        {
-            name: "Rian Corcino",
-            year: "2026",
-            website: "https://rian.corcino.net/"
         }
     ]
 };

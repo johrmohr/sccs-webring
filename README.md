@@ -1,6 +1,6 @@
-# SCCS Webring
+# LPN Webring
 
-A webring for friends and collaborators. A webring links personal websites in a circular way, letting visitors discover new people by navigating through the ring.
+A [webring](https://en.wikipedia.org/wiki/Webring) for ICS students in Lambda Phi at the University of California, Irvine. A webring links personal websites in a circular way, letting visitors discover new people by navigating through the ring.
 
 ## How to Join
 
