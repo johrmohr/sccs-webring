@@ -200,6 +200,138 @@ footer {
     font-size: 13px;
 }
 
+/* Ring Section - Horizontal Scroll */
+.ring-section {
+    width: 100%;
+    background-color: var(--bg-color);
+    padding: 60px 0 100px;
+    position: relative;
+}
+
+.ring-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.ring-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 40px 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+}
+
+.ring-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.ring-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.ring-container::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+.ring-track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 0 40px;
+    width: fit-content;
+}
+
+.ring-node {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.ring-site {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 40px;
+    background: var(--highlight-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    min-width: 200px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.ring-site:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--text-muted);
+    transform: scale(1.05);
+}
+
+.ring-site .site-name {
+    font-size: 18px;
+    color: var(--text-color);
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.ring-site .site-url {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.ring-connector {
+    width: 60px;
+    height: 2px;
+    background: var(--text-muted);
+    position: relative;
+    flex-shrink: 0;
+}
+
+.ring-connector::before,
+.ring-connector::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--text-muted);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ring-connector::before {
+    left: -3px;
+}
+
+.ring-connector::after {
+    right: -3px;
+}
+
+/* Hide connector after last item */
+.ring-node:last-child .ring-connector {
+    display: none;
+}
+
+/* SVG loop connector */
+.ring-loop-connector {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.loop-path {
+    stroke: var(--text-muted);
+    stroke-dasharray: 8 4;
+    opacity: 0.6;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
     .container {
@@ -216,5 +348,18 @@ footer {
         grid-template-columns: 1fr 60px 1fr;
         gap: 10px;
         font-size: 13px;
+    }
+
+    .ring-site {
+        min-width: 150px;
+        padding: 20px 25px;
+    }
+
+    .ring-site .site-name {
+        font-size: 14px;
+    }
+
+    .ring-connector {
+        width: 40px;
     }
 }

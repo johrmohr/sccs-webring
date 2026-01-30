@@ -15,9 +15,9 @@ Add this to your site's footer:
 
 ```html
 <div class="webring">
-  <a href="https://socalcs.tech/#YOUR-SITE?nav=prev">&larr;</a>
-  <a href="https://socalcs.tech/">webring</a>
-  <a href="https://socalcs.tech/#YOUR-SITE?nav=next">&rarr;</a>
+  <a href="https://webring.lpnuci.com/#YOUR-SITE?nav=prev">&larr;</a>
+  <a href="https://webring.lpnuci.com/">webring</a>
+  <a href="https://webring.lpnuci.com/#YOUR-SITE?nav=next">&rarr;</a>
 </div>
 ```
 
