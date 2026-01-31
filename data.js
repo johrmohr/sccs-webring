@@ -8,7 +8,6 @@ const siteData = {
             year: "2026",
             website: "https://jordanmoreno.me/"
         },
-        // Fake examples for testing - remove these later
         {
             name: "Alex Chen",
             year: "2025",
@@ -28,6 +27,41 @@ const siteData = {
             name: "Chris Wong",
             year: "2025",
             website: "https://chriswong.net/"
+        },
+        {
+            name: "Emily Zhang",
+            year: "2026",
+            website: "https://emilyzhang.dev/"
+        },
+        {
+            name: "Daniel Kim",
+            year: "2027",
+            website: "https://danielkim.io/"
+        },
+        {
+            name: "Sofia Garcia",
+            year: "2025",
+            website: "https://sofiagarcia.me/"
+        },
+        {
+            name: "Ryan Nguyen",
+            year: "2026",
+            website: "https://ryannguyen.com/"
+        },
+        {
+            name: "Olivia Lee",
+            year: "2027",
+            website: "https://olivialee.dev/"
+        },
+        {
+            name: "Ethan Park",
+            year: "2025",
+            website: "https://ethanpark.io/"
+        },
+        {
+            name: "Ava Martinez",
+            year: "2026",
+            website: "https://avamartinez.net/"
         }
     ]
 };

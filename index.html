@@ -36,18 +36,17 @@
     </div>
 
     <!-- Horizontal scroll ring visualization -->
-    <section class="ring-section">
-        <div class="ring-wrapper">
-            <div class="ring-container">
-                <div class="ring-track" id="ring-track">
-                    <!-- Sites will be rendered here by JS -->
+    <div class="ring-scroll-container" id="ring-scroll-container">
+        <section class="ring-section" id="ring-section">
+            <div class="ring-wrapper">
+                <div class="ring-container">
+                    <div class="ring-track" id="ring-track">
+                        <!-- Sites will be rendered here by JS -->
+                    </div>
                 </div>
             </div>
-            <svg class="ring-loop-connector" id="ring-loop-connector" preserveAspectRatio="none">
-                <path class="loop-path" id="loop-path" fill="none" stroke-width="2"/>
-            </svg>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <script src="data.js"></script>
     <script src="webring.js"></script>
