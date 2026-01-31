@@ -76,6 +76,8 @@ function initRingScroller() {
         // Apply initial offset to center the first real item
         ringTrack.style.transform = `translateX(${-initialOffset}px)`;
         horizontalOffset = initialOffset;
+        // Apply initial curve effect
+        applyCurveEffect();
     });
 
     function setupScrollConversion() {
@@ -112,6 +114,42 @@ function initRingScroller() {
         return scrollTop + clientHeight >= scrollHeight - 5;
     }
 
+    /**
+     * Apply 2D curve effect - cards tilt and drop to follow a circular arc
+     * Calculated based on fixed positions, not pixel measurements
+     */
+    function applyCurveEffect() {
+        const nodes = ringTrack.querySelectorAll('.ring-node');
+        const maxRotation = 30; // Maximum tilt in degrees at edges
+        const maxDrop = 220; // Maximum vertical drop in pixels at edges
+        const visibleRadius = 3; // How many nodes from center before max effect
+
+        // Calculate which node index is currently centered
+        const scrollProgress = (horizontalOffset - initialOffset) / (maxHorizontalScroll - initialOffset || 1);
+        const totalRealNodes = siteData.sites.length;
+        const numGhostBefore = Math.min(4, totalRealNodes);
+
+        // Current centered node index (in the full array including ghosts)
+        const centeredIndex = numGhostBefore + (scrollProgress * (totalRealNodes - 1));
+
+        nodes.forEach((node, index) => {
+            // Distance from centered position (in node units)
+            const distanceFromCenter = index - centeredIndex;
+
+            // Normalize to -1 to 1 range based on visible radius
+            const normalizedDistance = Math.max(-1, Math.min(1, distanceFromCenter / visibleRadius));
+
+            // Calculate 2D rotation - left cards tilt counterclockwise, right cards tilt clockwise
+            const rotation = normalizedDistance * maxRotation;
+
+            // Calculate vertical drop - follows a circular arc
+            const drop = normalizedDistance * normalizedDistance * maxDrop;
+
+            // Apply rotation and vertical translation to entire node (card + connector)
+            node.style.transform = `translateY(${drop}px) rotate(${rotation}deg)`;
+        });
+    }
+
     // Use wheel event to control horizontal scroll when at the bottom of the page
     window.addEventListener('wheel', (e) => {
         const scrollingDown = e.deltaY > 0;
@@ -133,6 +171,7 @@ function initRingScroller() {
             horizontalOffset = Math.max(initialOffset, Math.min(maxHorizontalScroll, horizontalOffset));
 
             ringTrack.style.transform = `translateX(${-horizontalOffset}px)`;
+            applyCurveEffect();
         }
     }, { passive: false });
 
@@ -142,6 +181,7 @@ function initRingScroller() {
         // Re-apply current offset clamped to new bounds
         horizontalOffset = Math.max(initialOffset, Math.min(maxHorizontalScroll, horizontalOffset));
         ringTrack.style.transform = `translateX(${-horizontalOffset}px)`;
+        applyCurveEffect();
     });
 
     // Click to visit site (works for both real and ghost nodes)
